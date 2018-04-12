@@ -10,3 +10,6 @@
 [submodule "libs/immutable-cpp"]
 	path = libs/immutable-cpp
 	url = https://github.com/CMakeezer/immutable-cpp
+[submodule "libs/czmq"]
+	path = libs/czmq
+	url = https://github.com/zeromq/czmq
