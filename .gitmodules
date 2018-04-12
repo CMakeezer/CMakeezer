@@ -13,3 +13,8 @@
 [submodule "libs/czmq"]
 	path = libs/czmq
 	url = https://github.com/zeromq/czmq
+[submodule "libzmq"]
+
+	path = libs/libzmq
+
+	url = https://github.com/zeromq/libzmq
