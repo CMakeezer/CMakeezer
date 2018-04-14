@@ -24,3 +24,6 @@
 [submodule "libs/Synca"]
 	path = libs/Synca
 	url = https://github.com/CMakeezer/Synca
+[submodule "libs/syscpp"]
+	path = libs/syscpp
+	url = https://github.com/CMakeezer/syscpp
