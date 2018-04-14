@@ -21,3 +21,6 @@
 [submodule "libs/cmcstl2"]
 	path = libs/cmcstl2
 	url = https://github.com/CMakeezer/cmcstl2
+[submodule "libs/Synca"]
+	path = libs/Synca
+	url = https://github.com/CMakeezer/Synca
