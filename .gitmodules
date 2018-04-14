@@ -27,3 +27,6 @@
 [submodule "libs/syscpp"]
 	path = libs/syscpp
 	url = https://github.com/CMakeezer/syscpp
+[submodule "libs/hof"]
+	path = libs/hof
+	url = https://github.com/CMakeezer/hof
