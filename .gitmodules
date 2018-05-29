@@ -33,3 +33,6 @@
 [submodule "libs/IncludeOS"]
 	path = libs/IncludeOS
 	url = https://github.com/CMakeezer/IncludeOS
+[submodule "libs/function2"]
+	path = libs/function2
+	url = https://github.com/CMakeezer/function2
