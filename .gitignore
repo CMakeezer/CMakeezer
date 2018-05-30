@@ -1,7 +1,6 @@
 /bin/*
 !/bin/data
 !/bin/encodings
-!/bin/jsonchecker
 !/bin/types
 /build
 /doc/html
@@ -14,8 +13,6 @@ CMakeFiles
 cmake_install.cmake
 CTestTestfile.cmake
 Makefile
-RapidJSON*.cmake
-RapidJSON.pc
 Testing
 /googletest
 install_manifest.txt
@@ -26,3 +23,5 @@ DartConfiguration.tcl
 
 # Files created by OS
 *.DS_Store
+
+.idea
