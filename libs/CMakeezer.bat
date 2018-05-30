@@ -1,109 +1,211 @@
 @echo off
-SET VAR=Welcome To Cmakeezer configuration
-ECHO %VAR%
-SET VAR=Input Your generator. Samples: -GNinja, -G"MinGW Makefiles", -G"NMake Makefiles JOM", -G"Visual Studio 15 2017 Win64".
-ECHO %VAR%
+echo[
+echo[
+echo[
+ECHO Welcome To Cmakeezer configuration
+echo[
+echo[
+
+
+ECHO CMake generators:
+ECHO Windows Platform: 
+ECHO  - Ninja, 
+ECHO  - MinGW Makefiles, 
+ECHO  - NMake Makefiles JOM, 
+ECHO  - NMake Makefiles, 
+ECHO  - Visual Studio 15 2017,
+ECHO  - Visual Studio 15 2017 Win64.
+ECHO Linux Platform: (not tested yet)
+ECHO  - Ninja, 
+ECHO  - Unix Makefiles
+ECHO Input Your generator. 
+echo[
 set /p UserGenerator=
-ECHO Generator: %UserGenerator%
 
+SET UserGenerator2=%UserGenerator%
+
+SET UserGeneratorSubstring=%UserGenerator2: =%
+set "CmakeezerBuild=%UserGeneratorSubstring%Build"
+
+echo[
+echo[
+ECHO Windows Platform: 
+ECHO  C:/repo
+ECHO Linux Platform: (not tested yet)
+ECHO  /usr/home/repo
 set /p repositoryDir=Set Your repository.
-ECHO Repository: %repositoryDir%
+set "InstallationPrefix=%repositoryDir%/%UserGeneratorSubstring%Build"
 
-SET Cmakeezer_Options=-DCMAKE_INSTALL_PREFIX=%repositoryDir% -DCMAKE_MODULE_PATH=%repositoryDir% -DCMAKE_PREFIX_PATH=%repositoryDir%
+ECHO ==============================
+ECHO ==============================
+echo[
+ECHO Generator: %UserGenerator2%
+ECHO Build folder: %CmakeezerBuild%
+ECHO Installation Prefix: %InstallationPrefix%
+echo[
+ECHO ==============================
+ECHO ==============================
 
+SET Cmakeezer_Options=-DCMAKE_INSTALL_PREFIX=%InstallationPrefix% -DCMAKE_MODULE_PATH=%InstallationPrefix% -DCMAKE_PREFIX_PATH=%InstallationPrefix%
+
+
+echo[
+echo[
 SET mypath=%~dp0
 echo @@@@@@@@@ %mypath:~0,-1% @@@@@@@@@
+echo[
+echo[
 
 cd googletest
-mkdir CmakeezerBuild
-cd CmakeezerBuild
-cmake %UserGenerator%  %Cmakeezer_Options% ..
-cmake --build . -- -v
+mkdir "%CmakeezerBuild%"
+cd "%CmakeezerBuild%"
+cmake -G"%UserGenerator%"  %Cmakeezer_Options% ..
+cmake --build .
 cmake --build . --target install
 cd %mypath%
 echo @@@@@@@@@ %mypath% @@@@@@@@@
+echo[
+echo[
 
 
 cd asyncplusplus
-mkdir CmakeezerBuild
-cd CmakeezerBuild
-cmake %UserGenerator%  %Cmakeezer_Options% ..
-cmake --build . -- -v
+mkdir "%CmakeezerBuild%"
+cd "%CmakeezerBuild%"
+cmake -G"%UserGenerator%"  %Cmakeezer_Options% ..
+cmake --build .
 cmake --build . --target install
 cd %mypath%
 echo @@@@@@@@@ %mypath% @@@@@@@@@
+echo[
+echo[
+
+
 
 cd Catch2
-mkdir CmakeezerBuild
-cd CmakeezerBuild
-cmake %UserGenerator%  %Cmakeezer_Options% -DCATCH_ENABLE_WERROR=OFF -DNO_SELFTEST=YES ..
-cmake --build . -- -v
+mkdir "%CmakeezerBuild%"
+cd "%CmakeezerBuild%"
+cmake -G"%UserGenerator%"  %Cmakeezer_Options% -DCATCH_ENABLE_WERROR=OFF -DNO_SELFTEST=YES ..
+cmake --build .
 cmake --build . --target install
 cd %mypath%
 echo @@@@@@@@@ %mypath% @@@@@@@@@
+echo[
+echo[
+
+
 
 cd function2
-mkdir CmakeezerBuild
-cd CmakeezerBuild
-cmake %UserGenerator%  %Cmakeezer_Options% ..
-cmake --build . -- -v
+mkdir "%CmakeezerBuild%"
+cd "%CmakeezerBuild%"
+cmake -G"%UserGenerator%"  %Cmakeezer_Options% ..
+cmake --build .
 cmake --build . --target install
 cd %mypath%
 echo @@@@@@@@@ %mypath% @@@@@@@@@
+echo[
+echo[
+
 
 cd GSL
-mkdir CmakeezerBuild
-cd CmakeezerBuild
-cmake %UserGenerator%  %Cmakeezer_Options% ..
-cmake --build . -- -v
+mkdir "%CmakeezerBuild%"
+cd "%CmakeezerBuild%"
+cmake -G"%UserGenerator%"  %Cmakeezer_Options% ..
+cmake --build .
 cmake --build . --target install
 cd %mypath%
 echo @@@@@@@@@ %mypath% @@@@@@@@@
+echo[
+echo[
+
 
 cd rapidjson
-mkdir CmakeezerBuild
-cd CmakeezerBuild
-cmake %UserGenerator%  %Cmakeezer_Options% ..
-cmake --build . -- -v
+mkdir "%CmakeezerBuild%"
+cd "%CmakeezerBuild%"
+cmake -G"%UserGenerator%"  %Cmakeezer_Options% -DRAPIDJSON_BUILD_TESTS=OFF ..
+cmake --build .
 cmake --build . --target install
 cd %mypath%
 echo @@@@@@@@@ %mypath% @@@@@@@@@
+echo[
+echo[
+
 
 cd libzmq
-mkdir CmakeezerBuild
-cd CmakeezerBuild
-cmake %UserGenerator%  %Cmakeezer_Options% ..
-cmake --build . -- -v
+mkdir "%CmakeezerBuild%"
+cd "%CmakeezerBuild%"
+cmake -G"%UserGenerator%"  %Cmakeezer_Options% -DWITH_DOC=OFF ..
+cmake --build .
 cmake --build . --target install
 cd %mypath%
 echo @@@@@@@@@ %mypath% @@@@@@@@@
+echo[
+echo[
+
 
 cd CppMicroServices
-mkdir CmakeezerBuild
-cd CmakeezerBuild
-cmake %UserGenerator%  %Cmakeezer_Options% ..
-cmake --build . -- -v
+mkdir "%CmakeezerBuild%"
+cd "%CmakeezerBuild%"
+cmake -G"%UserGenerator%"  %Cmakeezer_Options% ..
+cmake --build .
 cmake --build . --target install
 cd %mypath%
 echo @@@@@@@@@ %mypath% @@@@@@@@@
+echo[
+echo[
+
 
 cd cmcstl2
-mkdir CmakeezerBuild
-cd CmakeezerBuild
-cmake %UserGenerator%  %Cmakeezer_Options% ..
-cmake --build . -- -v
+mkdir "%CmakeezerBuild%"
+cd "%CmakeezerBuild%"
+cmake -G"%UserGenerator%"  %Cmakeezer_Options% ..
+cmake --build . 
 cmake --build . --target install
 cd %mypath%
 echo @@@@@@@@@ %mypath% @@@@@@@@@
+echo[
+echo[
 
 
 cd hof
-mkdir CmakeezerBuild
-cd CmakeezerBuild
-cmake %UserGenerator%  %Cmakeezer_Options% ..
-cmake --build . -- -v
+mkdir "%CmakeezerBuild%"
+cd "%CmakeezerBuild%"
+cmake -G"%UserGenerator%"  %Cmakeezer_Options% ..
+cmake --build . -- -j4
 cmake --build . --target install
 cd %mypath%
 echo @@@@@@@@@ %mypath% @@@@@@@@@
+echo[
+echo[
 
+
+cd FakeIt
+mkdir "%CmakeezerBuild%"
+cd "%CmakeezerBuild%"
+cmake -G"%UserGenerator%"  %Cmakeezer_Options% ..
+cmake --build .
+cmake --build . --target install
+cd %mypath%
+echo @@@@@@@@@ %mypath% @@@@@@@@@
+echo[
+echo[
+
+
+ECHO ============================================================
+ECHO ============================================================
+ECHO ===============  IMPORTANT NOTE ============================
+ECHO ============================================================
+ECHO ============================================================
+ECHO === Use this inside your favourite C++ IDE
+echo %Cmakeezer_Options%
+
+ECHO ============================================================
+ECHO ============================================================
+ECHO ==============   TODO:
+ECHO ==============   - User should have possibility to change library type
+ECHO ==============   -Add optional generator option,
+ECHO ==============   -Add precompiled header support
+ECHO ==============   -Add code coverage 
+ECHO ==============   -Add option to enable/disable Unit tests
+
+Exit /B 5
 PAUSE
