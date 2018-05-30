@@ -40,3 +40,6 @@
 [submodule "libs/Catch2"]
 	path = libs/Catch2
 	url = https://github.com/CMakeezer/Catch2
+[submodule "libs/rapidjson"]
+	path = libs/rapidjson
+	url = https://github.com/CMakeezer/rapidjson
