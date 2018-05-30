@@ -43,3 +43,6 @@
 [submodule "libs/rapidjson"]
 	path = libs/rapidjson
 	url = https://github.com/CMakeezer/rapidjson
+[submodule "libs/asyncplusplus"]
+	path = libs/asyncplusplus
+	url = https://github.com/CMakeezer/asyncplusplus
