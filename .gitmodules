@@ -46,3 +46,6 @@
 [submodule "libs/asyncplusplus"]
 	path = libs/asyncplusplus
 	url = https://github.com/CMakeezer/asyncplusplus
+[submodule "libs/FakeIt"]
+	path = libs/FakeIt
+	url = https://github.com/CMakeezer/FakeIt
