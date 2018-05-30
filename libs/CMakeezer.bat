@@ -9,15 +9,15 @@ echo[
 
 ECHO CMake generators:
 ECHO Windows Platform: 
-ECHO  - Ninja, 
-ECHO  - MinGW Makefiles, 
-ECHO  - NMake Makefiles JOM, 
-ECHO  - NMake Makefiles, 
-ECHO  - Visual Studio 15 2017,
-ECHO  - Visual Studio 15 2017 Win64.
+ECHO    Ninja
+ECHO    MinGW Makefiles
+ECHO    NMake Makefiles JOM
+ECHO    NMake Makefiles
+ECHO    Visual Studio 15 2017
+ECHO    Visual Studio 15 2017 Win64
 ECHO Linux Platform: (not tested yet)
-ECHO  - Ninja, 
-ECHO  - Unix Makefiles
+ECHO    Ninja
+ECHO    Unix Makefiles
 ECHO Input Your generator. 
 echo[
 set /p UserGenerator=
@@ -55,6 +55,29 @@ SET mypath=%~dp0
 echo @@@@@@@@@ %mypath:~0,-1% @@@@@@@@@
 echo[
 echo[
+
+cd clue
+mkdir "%CmakeezerBuild%"
+cd "%CmakeezerBuild%"
+cmake -G"%UserGenerator%"  %Cmakeezer_Options% ..
+cmake --build .
+cmake --build . --target install
+cd %mypath%
+echo @@@@@@@@@ %mypath% @@@@@@@@@
+echo[
+echo[
+
+cd YourProjectStartHere
+mkdir "%CmakeezerBuild%"
+cd "%CmakeezerBuild%"
+cmake -G"%UserGenerator%"  %Cmakeezer_Options% ..
+cmake --build .
+cmake --build . --target install
+cd %mypath%
+echo @@@@@@@@@ %mypath% @@@@@@@@@
+echo[
+echo[
+Exit /B 5
 
 cd googletest
 mkdir "%CmakeezerBuild%"
@@ -121,7 +144,7 @@ echo[
 cd rapidjson
 mkdir "%CmakeezerBuild%"
 cd "%CmakeezerBuild%"
-cmake -G"%UserGenerator%"  %Cmakeezer_Options% -DRAPIDJSON_BUILD_TESTS=OFF ..
+cmake -G"%UserGenerator%"  %Cmakeezer_Options% -DRAPIDJSON_BUILD_TESTS=OFF -DRAPIDJSON_BUILD_DOC=OFF ..
 cmake --build .
 cmake --build . --target install
 cd %mypath%
@@ -170,7 +193,7 @@ cd hof
 mkdir "%CmakeezerBuild%"
 cd "%CmakeezerBuild%"
 cmake -G"%UserGenerator%"  %Cmakeezer_Options% ..
-cmake --build . -- -j4
+cmake --build .
 cmake --build . --target install
 cd %mypath%
 echo @@@@@@@@@ %mypath% @@@@@@@@@
@@ -188,6 +211,8 @@ cd %mypath%
 echo @@@@@@@@@ %mypath% @@@@@@@@@
 echo[
 echo[
+
+
 
 
 ECHO ============================================================
