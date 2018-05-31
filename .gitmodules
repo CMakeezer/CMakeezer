@@ -49,3 +49,9 @@
 [submodule "libs/FakeIt"]
 	path = libs/FakeIt
 	url = https://github.com/CMakeezer/FakeIt
+[submodule "libs/immer"]
+	path = libs/immer
+	url = https://github.com/CMakeezer/immer
+[submodule "libs/hana"]
+	path = libs/hana
+	url = https://github.com/CMakeezer/hana

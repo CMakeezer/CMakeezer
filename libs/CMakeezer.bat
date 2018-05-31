@@ -36,17 +36,9 @@ ECHO  /usr/home/repo
 set /p repositoryDir=Set Your repository.
 set "InstallationPrefix=%repositoryDir%/%UserGeneratorSubstring%Build"
 
-ECHO ==============================
-ECHO ==============================
-echo[
-ECHO Generator: %UserGenerator2%
-ECHO Build folder: %CmakeezerBuild%
-ECHO Installation Prefix: %InstallationPrefix%
-echo[
-ECHO ==============================
-ECHO ==============================
 
-SET Cmakeezer_Options=-DCMAKE_INSTALL_PREFIX=%InstallationPrefix% -DCMAKE_MODULE_PATH=%InstallationPrefix% -DCMAKE_PREFIX_PATH=%InstallationPrefix%
+
+
 
 
 echo[
@@ -56,16 +48,20 @@ echo @@@@@@@@@ %mypath:~0,-1% @@@@@@@@@
 echo[
 echo[
 
-cd clue
-mkdir "%CmakeezerBuild%"
-cd "%CmakeezerBuild%"
-cmake -G"%UserGenerator%"  %Cmakeezer_Options% ..
-cmake --build .
-cmake --build . --target install
-cd %mypath%
-echo @@@@@@@@@ %mypath% @@@@@@@@@
+
+SET Cmakeezer_Options=-DCMAKE_INSTALL_PREFIX=%InstallationPrefix% -DCMAKE_MODULE_PATH=%InstallationPrefix% -DCMAKE_PREFIX_PATH=%InstallationPrefix%
+
+ECHO ==============================
+ECHO ==============================
 echo[
+ECHO Generator: %UserGenerator2%
+ECHO Build folder: %CmakeezerBuild%
+ECHO Installation Prefix: %InstallationPrefix%
+ECHO Cmakeezer_Options : %Cmakeezer_Options%
 echo[
+ECHO ==============================
+ECHO ==============================
+
 
 cd YourProjectStartHere
 mkdir "%CmakeezerBuild%"
@@ -78,6 +74,7 @@ echo @@@@@@@@@ %mypath% @@@@@@@@@
 echo[
 echo[
 Exit /B 5
+
 
 cd googletest
 mkdir "%CmakeezerBuild%"
@@ -201,6 +198,18 @@ echo[
 echo[
 
 
+
+cd clue
+mkdir "%CmakeezerBuild%"
+cd "%CmakeezerBuild%"
+cmake -G"%UserGenerator%"  %Cmakeezer_Options% ..
+cmake --build .
+cmake --build . --target install
+cd %mypath%
+echo @@@@@@@@@ %mypath% @@@@@@@@@
+echo[
+echo[
+
 cd FakeIt
 mkdir "%CmakeezerBuild%"
 cd "%CmakeezerBuild%"
@@ -212,6 +221,29 @@ echo @@@@@@@@@ %mypath% @@@@@@@@@
 echo[
 echo[
 
+
+cd immer
+mkdir "%CmakeezerBuild%"
+cd "%CmakeezerBuild%"
+cmake -G"%UserGenerator%"  %Cmakeezer_Options% ..
+cmake --build .
+cmake --build . --target install
+cd %mypath%
+echo @@@@@@@@@ %mypath% @@@@@@@@@
+echo[
+echo[
+
+
+cd hana
+mkdir "%CmakeezerBuild%"
+cd "%CmakeezerBuild%"
+cmake -G"%UserGenerator%"  %Cmakeezer_Options% ..
+cmake --build .
+cmake --build . --target install
+cd %mypath%
+echo @@@@@@@@@ %mypath% @@@@@@@@@
+echo[
+echo[
 
 
 
