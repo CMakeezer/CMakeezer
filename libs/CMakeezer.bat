@@ -49,37 +49,36 @@ echo[
 echo[
 
 
-SET Cmakeezer_Options=-DCMAKE_INSTALL_PREFIX=%InstallationPrefix% -DCMAKE_MODULE_PATH=%InstallationPrefix% -DCMAKE_PREFIX_PATH=%InstallationPrefix%
+SET Cmakeezer_Options=-DCMAKE_INSTALL_PREFIX=%InstallationPrefix% -DCMAKE_MODULE_PATH=%InstallationPrefix% -DCMAKE_PREFIX_PATH=%InstallationPrefix% -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON
 
-ECHO ==============================
-ECHO ==============================
+ECHO ==========================================================================================
+ECHO ==========================================================================================
 echo[
 ECHO Generator: %UserGenerator2%
 ECHO Build folder: %CmakeezerBuild%
 ECHO Installation Prefix: %InstallationPrefix%
 ECHO Cmakeezer_Options : %Cmakeezer_Options%
 echo[
-ECHO ==============================
-ECHO ==============================
-
-
-cd YourProjectStartHere
-mkdir "%CmakeezerBuild%"
-cd "%CmakeezerBuild%"
-cmake -G"%UserGenerator%"  %Cmakeezer_Options% ..
-cmake --build .
-cmake --build . --target install
-cd %mypath%
-echo @@@@@@@@@ %mypath% @@@@@@@@@
-echo[
-echo[
-Exit /B 5
+ECHO ==========================================================================================
+ECHO ==========================================================================================
 
 
 cd googletest
 mkdir "%CmakeezerBuild%"
 cd "%CmakeezerBuild%"
 cmake -G"%UserGenerator%"  %Cmakeezer_Options% ..
+cmake --build . --config Release
+cmake --build . --target install
+cd %mypath%
+echo @@@@@@@@@ %mypath% @@@@@@@@@
+echo[
+echo[
+
+
+cd clue
+mkdir "%CmakeezerBuild%"
+cd "%CmakeezerBuild%"
+cmake -G"%UserGenerator%"  %Cmakeezer_Options% -DBUILD_TEST=OFF ..
 cmake --build .
 cmake --build . --target install
 cd %mypath%
@@ -113,19 +112,6 @@ echo[
 echo[
 
 
-
-cd function2
-mkdir "%CmakeezerBuild%"
-cd "%CmakeezerBuild%"
-cmake -G"%UserGenerator%"  %Cmakeezer_Options% ..
-cmake --build .
-cmake --build . --target install
-cd %mypath%
-echo @@@@@@@@@ %mypath% @@@@@@@@@
-echo[
-echo[
-
-
 cd GSL
 mkdir "%CmakeezerBuild%"
 cd "%CmakeezerBuild%"
@@ -150,10 +136,11 @@ echo[
 echo[
 
 
+
 cd libzmq
 mkdir "%CmakeezerBuild%"
 cd "%CmakeezerBuild%"
-cmake -G"%UserGenerator%"  %Cmakeezer_Options% -DWITH_DOC=OFF ..
+cmake -G"%UserGenerator%"  %Cmakeezer_Options% -DWITH_DOC=OFF -DBUILD_TESTS=OFF ..
 cmake --build .
 cmake --build . --target install
 cd %mypath%
@@ -198,18 +185,6 @@ echo[
 echo[
 
 
-
-cd clue
-mkdir "%CmakeezerBuild%"
-cd "%CmakeezerBuild%"
-cmake -G"%UserGenerator%"  %Cmakeezer_Options% ..
-cmake --build .
-cmake --build . --target install
-cd %mypath%
-echo @@@@@@@@@ %mypath% @@@@@@@@@
-echo[
-echo[
-
 cd FakeIt
 mkdir "%CmakeezerBuild%"
 cd "%CmakeezerBuild%"
@@ -240,6 +215,41 @@ cd "%CmakeezerBuild%"
 cmake -G"%UserGenerator%"  %Cmakeezer_Options% ..
 cmake --build .
 cmake --build . --target install
+cd %mypath%
+echo @@@@@@@@@ %mypath% @@@@@@@@@
+echo[
+echo[
+
+
+cd function2
+mkdir "%CmakeezerBuild%"
+cd "%CmakeezerBuild%"
+cmake -G"%UserGenerator%"  %Cmakeezer_Options%  ..
+cmake --build .
+cmake --build . --target install
+cd %mypath%
+echo @@@@@@@@@ %mypath% @@@@@@@@@
+echo[
+echo[
+
+
+cd continuable
+mkdir "%CmakeezerBuild%"
+cd "%CmakeezerBuild%"
+cmake -G"%UserGenerator%"  %Cmakeezer_Options% -DCTI_CONTINUABLE_WITH_EXAMPLES=OFF -DCTI_CONTINUABLE_WITH_TESTS=OFF ..
+cmake --build .
+cmake --build . --target install
+cd %mypath%
+echo @@@@@@@@@ %mypath% @@@@@@@@@
+echo[
+echo[
+
+cd YourProjectStartHere
+mkdir "%CmakeezerBuild%"
+cd "%CmakeezerBuild%"
+cmake -G"%UserGenerator%"  %Cmakeezer_Options% ..
+cmake --build .
+cmake --build . --target test
 cd %mypath%
 echo @@@@@@@@@ %mypath% @@@@@@@@@
 echo[

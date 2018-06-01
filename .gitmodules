@@ -55,3 +55,6 @@
 [submodule "libs/hana"]
 	path = libs/hana
 	url = https://github.com/CMakeezer/hana
+[submodule "libs/continuable"]
+	path = libs/continuable
+	url = https://github.com/CMakeezer/continuable
