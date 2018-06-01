@@ -3,10 +3,8 @@ project (Projecto)
 include(FeatureSummary)
 set(CMAKE_CXX_STANDARD 14)
 
-set(GTEST_MSVC_SEARCH "MT")
-set(GTEST_MSVC_SEARCH MT)
 find_package(Threads REQUIRED)  #Threads::Threads
-#find_package(benchmark REQUIRED) #benchmark::benchmark
+find_package(benchmark REQUIRED) #benchmark::benchmark
 #find_package(SFML 2.4.2 REQUIRED)
 
 find_package(function2 REQUIRED)
@@ -27,9 +25,6 @@ find_package(ZeroMQ 4.3.1 REQUIRED)  #libzmq libzmq-static
 if(MSVC)
 #    message(INFO "CMAKE_CXX_FLAGS_RELEASE=${CMAKE_CXX_FLAGS_RELEASE}")
 #    message(INFO "CMAKE_CXX_FLAGS_DEBUG=${CMAKE_CXX_FLAGS_DEBUG}")
-#    message(INFO "GTEST_MSVC_SEARCH=${GTEST_MSVC_SEARCH}")
-#    message(INFO " MSVC here")
-
     set(CMAKE_CXX_FLAGS_RELEASE "/MT /O2 /Ob2 /DNDEBUG")
     set(CMAKE_CXX_FLAGS_DEBUG "/MTd /Zi /Ob0 /Od /RTC1")
 #    message(INFO "CMAKE_CXX_FLAGS_RELEASE=${CMAKE_CXX_FLAGS_RELEASE}")
