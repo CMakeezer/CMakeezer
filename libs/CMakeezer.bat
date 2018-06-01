@@ -37,10 +37,6 @@ set /p repositoryDir=Set Your repository.
 set "InstallationPrefix=%repositoryDir%/%UserGeneratorSubstring%Build"
 
 
-
-
-
-
 echo[
 echo[
 SET mypath=%~dp0
@@ -259,7 +255,7 @@ echo[
 cd backward-cpp
 mkdir "%CmakeezerBuild%"
 cd "%CmakeezerBuild%"
-cmake -G"%UserGenerator%"  %Cmakeezer_Options% ..
+cmake -G"%UserGenerator%"  %Cmakeezer_Options% -DSTACK_WALKING_UNWIND:BOOL=FALSE ..
 cmake --build .
 cmake --build . --target install
 cd %mypath%
@@ -268,10 +264,23 @@ echo[
 echo[
 
 
+
 cd curl
 mkdir "%CmakeezerBuild%"
 cd "%CmakeezerBuild%"
 cmake -G"%UserGenerator%"  %Cmakeezer_Options% -DBUILD_TESTING=OFF ..
+cmake --build .
+cmake --build . --target install
+cd %mypath%
+echo @@@@@@@@@ %mypath% @@@@@@@@@
+echo[
+echo[
+
+
+cd SFML
+mkdir "%CmakeezerBuild%"
+cd "%CmakeezerBuild%"
+cmake -G"%UserGenerator%"  %Cmakeezer_Options% -DSFML_BUILD_DOC=OFF ..
 cmake --build .
 cmake --build . --target install
 cd %mypath%
@@ -290,6 +299,10 @@ cd %mypath%
 echo @@@@@@@@@ %mypath% @@@@@@@@@
 echo[
 echo[
+Exit /B 5
+
+
+
 
 
 

@@ -67,3 +67,6 @@
 [submodule "libs/curl"]
 	path = libs/curl
 	url = https://github.com/CMakeezer/curl
+[submodule "libs/SFML"]
+	path = libs/SFML
+	url = https://github.com/CMakeezer/SFML
