@@ -58,3 +58,6 @@
 [submodule "libs/continuable"]
 	path = libs/continuable
 	url = https://github.com/CMakeezer/continuable
+[submodule "libs/benchmark"]
+	path = libs/benchmark
+	url = https://github.com/CMakeezer/benchmark
