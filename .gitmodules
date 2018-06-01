@@ -61,3 +61,6 @@
 [submodule "libs/benchmark"]
 	path = libs/benchmark
 	url = https://github.com/CMakeezer/benchmark
+[submodule "libs/backward-cpp"]
+	path = libs/backward-cpp
+	url = https://github.com/CMakeezer/backward-cpp
