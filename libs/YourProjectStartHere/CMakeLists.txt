@@ -43,9 +43,9 @@ target_link_libraries(msvc PUBLIC
         libzmq)
 target_include_directories(msvc PRIVATE ${RapidJSON_INCLUDE_DIRS})
 
-#add_executable(tester fakeit_gtest_ut.cc)
-#add_test(tester tester)
-#target_link_libraries(tester PRIVATE  GTest::GTest GTest::Main FakeIt::FakeIt)
+add_executable(tester fakeit_gtest_ut.cc)
+add_test(tester tester)
+target_link_libraries(tester PRIVATE  GTest::GTest GTest::Main FakeIt::FakeIt)
 #target_include_directories(tester PRIVATE  ${GMOCK_INCLUDE_DIR} )
 
 #add_executable(catch_ut catch_ut.cpp)
