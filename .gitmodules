@@ -64,3 +64,6 @@
 [submodule "libs/backward-cpp"]
 	path = libs/backward-cpp
 	url = https://github.com/CMakeezer/backward-cpp
+[submodule "libs/curl"]
+	path = libs/curl
+	url = https://github.com/CMakeezer/curl

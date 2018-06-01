@@ -255,13 +255,37 @@ echo @@@@@@@@@ %mypath% @@@@@@@@@
 echo[
 echo[
 
+
+cd backward-cpp
+mkdir "%CmakeezerBuild%"
+cd "%CmakeezerBuild%"
+cmake -G"%UserGenerator%"  %Cmakeezer_Options% ..
+cmake --build .
+cmake --build . --target install
+cd %mypath%
+echo @@@@@@@@@ %mypath% @@@@@@@@@
+echo[
+echo[
+
+
+cd curl
+mkdir "%CmakeezerBuild%"
+cd "%CmakeezerBuild%"
+cmake -G"%UserGenerator%"  %Cmakeezer_Options% -DBUILD_TESTING=OFF ..
+cmake --build .
+cmake --build . --target install
+cd %mypath%
+echo @@@@@@@@@ %mypath% @@@@@@@@@
+echo[
+echo[
+
+
 cd YourProjectStartHere
 mkdir "%CmakeezerBuild%"
 cd "%CmakeezerBuild%"
 cmake -G"%UserGenerator%"  %Cmakeezer_Options% ..
 cmake --build .
 cmake --build . --target test
-ctest -VV
 cd %mypath%
 echo @@@@@@@@@ %mypath% @@@@@@@@@
 echo[

@@ -22,6 +22,7 @@ find_package(Catch2 2.2.2 REQUIRED) 		#Catch2::Catch2
 find_package(rapidjson 1.1.0 REQUIRED)
 find_package(ZeroMQ 4.3.1 REQUIRED)  		#libzmq libzmq-static
 find_package(Backward REQUIRED)  			#Backward::Backward
+find_package(curl 7.61.0 REQUIRED)
 
 if(MSVC)
     set(CMAKE_CXX_FLAGS_RELEASE "/MT /O2 /Ob2 /DNDEBUG")
@@ -37,6 +38,8 @@ target_link_libraries(msvc PUBLIC
         CLUE::clue
         libzmq
         Backward::Backward
+        immer
+        CURL::libcurl
         )
 target_include_directories(msvc PRIVATE ${RapidJSON_INCLUDE_DIRS})
 
