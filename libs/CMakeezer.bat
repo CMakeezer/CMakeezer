@@ -78,7 +78,7 @@ echo[
 cd clue
 mkdir "%CmakeezerBuild%"
 cd "%CmakeezerBuild%"
-cmake -G"%UserGenerator%"  %Cmakeezer_Options% -DBUILD_TEST=OFF ..
+cmake -G"%UserGenerator%"  %Cmakeezer_Options% -DBUILD_TESTS=OFF ..
 cmake --build .
 cmake --build . --target install
 cd %mypath%
@@ -244,12 +244,24 @@ echo @@@@@@@@@ %mypath% @@@@@@@@@
 echo[
 echo[
 
+cd benchmark
+mkdir "%CmakeezerBuild%"
+cd "%CmakeezerBuild%"
+cmake -G"%UserGenerator%"  %Cmakeezer_Options% -DBENCHMARK_ENABLE_TESTING=OFF ..
+cmake --build .
+cmake --build . --target install
+cd %mypath%
+echo @@@@@@@@@ %mypath% @@@@@@@@@
+echo[
+echo[
+
 cd YourProjectStartHere
 mkdir "%CmakeezerBuild%"
 cd "%CmakeezerBuild%"
 cmake -G"%UserGenerator%"  %Cmakeezer_Options% ..
 cmake --build .
 cmake --build . --target test
+ctest -VV
 cd %mypath%
 echo @@@@@@@@@ %mypath% @@@@@@@@@
 echo[
