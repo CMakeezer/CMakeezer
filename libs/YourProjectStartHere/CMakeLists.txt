@@ -5,24 +5,26 @@ set(CMAKE_CXX_STANDARD 14)
 
 find_package(Threads REQUIRED)  			#Threads::Threads
 find_package(benchmark REQUIRED) 			#benchmark::benchmark
-find_package(SFML 2.4.2 REQUIRED network audio graphics window system)
+#find_package(SFML 2.4.2 COMPONENTS audio graphics window system)
 
 find_package(function2 REQUIRED)
 find_package(FakeIt REQUIRED) 				#FakeIt::FakeIt
-find_package(immer REQUIRED) 				#immer
+find_package(Immer REQUIRED) 				#immer
 #find_package(OpenCv 3.3.0 REQUIRED)
-find_package(hana REQUIRED) 				#hana
+find_package(Hana REQUIRED) 				#hana
 find_package(GTest 1.8.0 REQUIRED) 			#GTest::GTest GTest::Main
 #find_package(GMock 1.8.0 REQUIRED)			# TODO: We have to add FindGMock.cmake
 #find_package(cpr REQUIRED) 				#cpr::cpr
 #find_package(log4cplus REQUIRED) 			#log4cplus::log4cplus
 find_package(continuable REQUIRED) 			#continuable::continuable-base continuable::continuable
-find_package(clue 1.0 REQUIRED) 			#clue::clue
+find_package(CLUE 1.0 REQUIRED) 			#clue::clue
 find_package(Catch2 2.2.2 REQUIRED) 		#Catch2::Catch2
-find_package(rapidjson 1.1.0 REQUIRED)
+find_package(RapidJSON 1.1.0 REQUIRED)
 find_package(ZeroMQ 4.3.1 REQUIRED)  		#libzmq libzmq-static
-find_package(Backward)  			#Backward::Backward
+find_package(Backward)  			        #Backward::Backward
 find_package(curl 7.61.0)
+find_package(tinydnn)
+find_package(brigand)
 
 if(MSVC)
     set(CMAKE_CXX_FLAGS_RELEASE "/MT /O2 /Ob2 /DNDEBUG")
@@ -42,12 +44,13 @@ target_link_libraries(msvc PUBLIC
         libzmq
         #Backward::Backward
         immer
+        brigand::brigand
         #CURL::libcurl
-        sfml-main
-        sfml-audio
-        sfml-graphics
-        sfml-window
-        sfml-system
+        #sfml-main
+        #sfml-audio
+        #sfml-graphics
+        #sfml-window
+        #sfml-system
         )
 target_include_directories(msvc PRIVATE ${RapidJSON_INCLUDE_DIRS})
 

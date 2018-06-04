@@ -38,8 +38,7 @@ echo  $mypath
 echo -e
 echo -e
 
-Module_Path=$InstallationPrefix
-Cmakeezer_Options="-DCMAKE_INSTALL_PREFIX=${InstallationPrefix} -DCMAKE_MODULE_PATH=$Module_Path -DCMAKE_PREFIX_PATH=$Module_Path -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON"
+Cmakeezer_Options="-DCMAKE_INSTALL_PREFIX=${InstallationPrefix} -DCMAKE_MODULE_PATH=$InstallationPrefix -DCMAKE_PREFIX_PATH=$InstallationPrefix -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON"
 
 echo ==========================================================================================
 echo ==========================================================================================
@@ -293,6 +292,29 @@ echo @@@@@@@@@ $mypath @@@@@@@@@
 echo -e
 echo -e
 
+
+cd tiny-dnn
+mkdir $CmakeezerBuild
+cd $CmakeezerBuild
+cmake -G"$UserGenerator"  $Cmakeezer_Options ..
+cmake --build . $generateDefaultOptions
+cmake --build . --target install
+cd $mypath
+echo @@@@@@@@@ $mypath @@@@@@@@@
+echo -e
+echo -e
+
+
+cd brigand
+mkdir $CmakeezerBuild
+cd $CmakeezerBuild
+cmake -G"$UserGenerator"  $Cmakeezer_Options ..
+cmake --build . $generateDefaultOptions
+cmake --build . --target install
+cd $mypath
+echo @@@@@@@@@ $mypath @@@@@@@@@
+echo -e
+echo -e
 
 cd YourProjectStartHere
 mkdir $CmakeezerBuild

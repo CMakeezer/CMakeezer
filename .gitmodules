@@ -70,3 +70,9 @@
 [submodule "libs/SFML"]
 	path = libs/SFML
 	url = https://github.com/CMakeezer/SFML
+[submodule "libs/tiny-dnn"]
+	path = libs/tiny-dnn
+	url = https://github.com/CMakeezer/tiny-dnn
+[submodule "libs/brigand"]
+	path = libs/brigand
+	url = https://github.com/CMakeezer/brigand
