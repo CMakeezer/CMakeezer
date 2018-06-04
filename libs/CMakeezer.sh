@@ -52,14 +52,12 @@ echo -e
 echo ==========================================================================================
 echo ==========================================================================================
 
-generaotrDefaultOpton=
+generateDefaultOptions=
 
 if [ "$UserGenerator" == "Ninja" ] ; then
-	echo "???????? Ninja"
-	generaotrDefaultOpton="-- -v"
+	generateDefaultOptions="-- -v"
 elif [ "$UserGenerator" == "Unix Makefiles" ] ;then
-	echo "???????? Unix Makefiles"
-	generaotrDefaultOpton="-- -j4"
+	generateDefaultOptions="-- -j4"
 else
 	echo "Unknown Generator"
 fi
@@ -69,13 +67,12 @@ cd googletest
 mkdir $CmakeezerBuild
 cd $CmakeezerBuild
 cmake -G"$UserGenerator"  $Cmakeezer_Options ..
-cmake --build . "$generaotrDefaultOpton"
+cmake --build . $generateDefaultOptions
 cmake --build . --target install
 cd $mypath
 echo @@@@@@@@@ $mypath @@@@@@@@@
 echo -e
 echo -e
-exit 1
 
 echo current: $PWD
 
@@ -83,7 +80,7 @@ cd CLUE
 mkdir $CmakeezerBuild
 cd $CmakeezerBuild
 cmake -G"$UserGenerator"  $Cmakeezer_Options -DBUILD_TESTS=OFF ..
-cmake --build .
+cmake --build . $generateDefaultOptions
 cmake --build . --target install
 cd $mypath
 echo @@@@@@@@@ $mypath @@@@@@@@@
@@ -95,7 +92,7 @@ cd asyncplusplus
 mkdir $CmakeezerBuild
 cd $CmakeezerBuild
 cmake -G"$UserGenerator"  $Cmakeezer_Options ..
-cmake --build .
+cmake --build . $generateDefaultOptions
 cmake --build . --target install
 cd $mypath
 echo @@@@@@@@@ $mypath @@@@@@@@@
@@ -108,7 +105,7 @@ cd Catch2
 mkdir $CmakeezerBuild
 cd $CmakeezerBuild
 cmake -G"$UserGenerator"  $Cmakeezer_Options -DCATCH_ENABLE_WERROR=OFF -DNO_SELFTEST=YES ..
-cmake --build .
+cmake --build . $generateDefaultOptions
 cmake --build . --target install
 cd $mypath
 echo @@@@@@@@@ $mypath @@@@@@@@@
@@ -120,7 +117,7 @@ cd GSL
 mkdir $CmakeezerBuild
 cd $CmakeezerBuild
 cmake -G"$UserGenerator"  $Cmakeezer_Options ..
-cmake --build .
+cmake --build . $generateDefaultOptions
 cmake --build . --target install
 cd $mypath
 echo @@@@@@@@@ $mypath @@@@@@@@@
@@ -132,7 +129,7 @@ cd rapidjson
 mkdir $CmakeezerBuild
 cd $CmakeezerBuild
 cmake -G"$UserGenerator"  $Cmakeezer_Options -DRAPIDJSON_BUILD_TESTS=OFF -DRAPIDJSON_BUILD_DOC=OFF ..
-cmake --build .
+cmake --build . $generateDefaultOptions
 cmake --build . --target install
 cd $mypath
 echo @@@@@@@@@ $mypath @@@@@@@@@
@@ -145,7 +142,7 @@ cd libzmq
 mkdir $CmakeezerBuild
 cd $CmakeezerBuild
 cmake -G"$UserGenerator"  $Cmakeezer_Options -DWITH_DOC=OFF -DBUILD_TESTS=OFF ..
-cmake --build .
+cmake --build . $generateDefaultOptions
 cmake --build . --target install
 cd $mypath
 echo @@@@@@@@@ $mypath @@@@@@@@@
@@ -157,7 +154,7 @@ cd CppMicroServices
 mkdir $CmakeezerBuild$
 cd $CmakeezerBuild$
 cmake -G"$UserGenerator"  $Cmakeezer_Options ..
-cmake --build .
+cmake --build . $generateDefaultOptions
 cmake --build . --target install
 cd $mypath
 echo @@@@@@@@@ $mypath @@@@@@@@@
@@ -169,7 +166,7 @@ cd cmcstl2
 mkdir $CmakeezerBuild
 cd $CmakeezerBuild
 cmake -G"$UserGenerator"  $Cmakeezer_Options ..
-cmake --build . 
+cmake --build . $generateDefaultOptions
 cmake --build . --target install
 cd $mypath
 echo @@@@@@@@@ $mypath @@@@@@@@@
@@ -181,7 +178,7 @@ cd hof
 mkdir $CmakeezerBuild
 cd $CmakeezerBuild
 cmake -G"$UserGenerator"  $Cmakeezer_Options ..
-cmake --build .
+cmake --build . $generateDefaultOptions
 cmake --build . --target install
 cd $mypath
 echo @@@@@@@@@ $mypath @@@@@@@@@
@@ -193,7 +190,7 @@ cd FakeIt
 mkdir $CmakeezerBuild
 cd $CmakeezerBuild
 cmake -G"$UserGenerator"  $Cmakeezer_Options ..
-cmake --build .
+cmake --build . $generateDefaultOptions
 cmake --build . --target install
 cd $mypath
 echo @@@@@@@@@ $mypath @@@@@@@@@
@@ -205,7 +202,7 @@ cd immer
 mkdir $CmakeezerBuild
 cd $CmakeezerBuild
 cmake -G"$UserGenerator"  $Cmakeezer_Options ..
-cmake --build .
+cmake --build . $generateDefaultOptions
 cmake --build . --target install
 cd $mypath
 echo @@@@@@@@@ $mypath @@@@@@@@@
@@ -217,7 +214,7 @@ cd hana
 mkdir $CmakeezerBuild
 cd $CmakeezerBuild
 cmake -G"$UserGenerator"  $Cmakeezer_Options ..
-cmake --build .
+cmake --build . $generateDefaultOptions
 cmake --build . --target install
 cd $mypath
 echo @@@@@@@@@ $mypath @@@@@@@@@
@@ -229,7 +226,7 @@ cd function2
 mkdir $CmakeezerBuild
 cd $CmakeezerBuild
 cmake -G"$UserGenerator"  $Cmakeezer_Options  ..
-cmake --build .
+cmake --build . $generateDefaultOptions
 cmake --build . --target install
 cd $mypath
 echo @@@@@@@@@ $mypath @@@@@@@@@
@@ -241,7 +238,7 @@ cd continuable
 mkdir $CmakeezerBuild
 cd $CmakeezerBuild
 cmake -G"$UserGenerator"  $Cmakeezer_Options -DCTI_CONTINUABLE_WITH_EXAMPLES=OFF -DCTI_CONTINUABLE_WITH_TESTS=OFF ..
-cmake --build .
+cmake --build . $generateDefaultOptions
 cmake --build . --target install
 cd $mypath
 echo @@@@@@@@@ $mypath @@@@@@@@@
@@ -252,7 +249,7 @@ cd benchmark
 mkdir $CmakeezerBuild
 cd $CmakeezerBuild
 cmake -G"$UserGenerator"  $Cmakeezer_Options -DBENCHMARK_ENABLE_TESTING=OFF ..
-cmake --build .
+cmake --build . $generateDefaultOptions
 cmake --build . --target install
 cd $mypath
 echo @@@@@@@@@ $mypath @@@@@@@@@
@@ -264,7 +261,7 @@ cd backward-cpp
 mkdir $CmakeezerBuild
 cd $CmakeezerBuild
 cmake -G"$UserGenerator"  $Cmakeezer_Options -DSTACK_WALKING_UNWIND:BOOL=FALSE ..
-cmake --build .
+cmake --build . $generateDefaultOptions
 cmake --build . --target install
 cd $mypath
 echo @@@@@@@@@ $mypath @@@@@@@@@
@@ -277,7 +274,7 @@ cd curl
 mkdir $CmakeezerBuild
 cd $CmakeezerBuild
 cmake -G"$UserGenerator"  $Cmakeezer_Options -DBUILD_TESTING=OFF ..
-cmake --build .
+cmake --build . $generateDefaultOptions
 cmake --build . --target install
 cd $mypath
 echo @@@@@@@@@ $mypath @@@@@@@@@
@@ -289,7 +286,7 @@ cd SFML
 mkdir $CmakeezerBuild
 cd $CmakeezerBuild
 cmake -G"$UserGenerator"  $Cmakeezer_Options -DSFML_BUILD_DOC=OFF ..
-cmake --build .
+cmake --build . $generateDefaultOptions
 cmake --build . --target install
 cd $mypath
 echo @@@@@@@@@ $mypath @@@@@@@@@
@@ -301,7 +298,7 @@ cd YourProjectStartHere
 mkdir $CmakeezerBuild
 cd $CmakeezerBuild
 cmake -G"$UserGenerator"  $Cmakeezer_Options ..
-cmake --build .
+cmake --build . $generateDefaultOptions
 cmake --build . --target test
 cd $mypath
 echo @@@@@@@@@ $mypath @@@@@@@@@
@@ -327,6 +324,3 @@ echo ==============   -Add optional generator option,
 echo ==============   -Add precompiled header support
 echo ==============   -Add code coverage 
 echo ==============   -Add option to enable/disable Unit tests
-
-
-PAUSE
