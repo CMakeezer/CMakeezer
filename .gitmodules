@@ -73,3 +73,6 @@
 [submodule "libs/brigand"]
 	path = libs/brigand
 	url = https://github.com/CMakeezer/brigand
+[submodule "libs/CLUE"]
+	path = libs/CLUE
+	url = https://github.com/CMakeezer/CLUE
