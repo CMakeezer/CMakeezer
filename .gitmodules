@@ -4,9 +4,6 @@
 [submodule "libs/CppMicroServices"]
 	path = libs/CppMicroServices
 	url = https://github.com/CMakeezer/CppMicroServices
-[submodule "libs/CLUE"]
-	path = libs/CLUE
-	url = https://github.com/CMakeezer/CLUE
 [submodule "libs/immutable-cpp"]
 	path = libs/immutable-cpp
 	url = https://github.com/CMakeezer/immutable-cpp
