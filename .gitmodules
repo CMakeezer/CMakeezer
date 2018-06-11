@@ -76,3 +76,6 @@
 [submodule "libs/CLUE"]
 	path = libs/CLUE
 	url = https://github.com/CMakeezer/CLUE
+[submodule "libs/gherkin-c"]
+	path = libs/gherkin-c
+	url = https://github.com/CMakeezer/gherkin-c
