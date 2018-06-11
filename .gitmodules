@@ -88,3 +88,9 @@
 [submodule "libs/GUnit"]
 	path = libs/GUnit
 	url = https://github.com/CMakeezer/GUnit
+[submodule "libs/cmake-findgmock"]
+	path = libs/cmake-findgmock
+	url = https://github.com/CMakeezer/cmake-findgmock
+[submodule "libs/dynamix"]
+	path = libs/dynamix
+	url = https://github.com/CMakeezer/dynamix
