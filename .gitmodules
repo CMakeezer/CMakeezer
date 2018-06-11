@@ -85,3 +85,6 @@
 [submodule "libs/gherkin-cpp"]
 	path = libs/gherkin-cpp
 	url = https://github.com/CMakeezer/gherkin-cpp
+[submodule "libs/GUnit"]
+	path = libs/GUnit
+	url = https://github.com/CMakeezer/GUnit
