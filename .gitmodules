@@ -79,3 +79,6 @@
 [submodule "libs/gherkin-c"]
 	path = libs/gherkin-c
 	url = https://github.com/CMakeezer/gherkin-c
+[submodule "libs/fmem"]
+	path = libs/fmem
+	url = https://github.com/CMakeezer/fmem
