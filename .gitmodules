@@ -94,3 +94,6 @@
 [submodule "libs/dynamix"]
 	path = libs/dynamix
 	url = https://github.com/CMakeezer/dynamix
+[submodule "libs/metal"]
+	path = libs/metal
+	url = https://github.com/CMakeezer/metal

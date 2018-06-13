@@ -115,25 +115,36 @@ addDependency () {
 #addDependency "ctti" "-DCTTI_BUILD_TESTS=ON -DCTTI_BUILD_EXAMPLES=ON" #build error
 #addDependency "treefrog-framework" #does not appear to contain CMakeLists.txt
 #addDependency "metaverse" #require miniupnpc
+#addDependency "libsolace" #require cppunit fmt
+#addDependency "Fido" #does not appear to contain CMakeLists.txt
+#addDependency "lambda" "-DENABLE_TESTS=OFF -DENABLE_BENCHMARK=OFF" # fix INTERFACE_INCLUDE_DIRECTORIES issue
+#addDependency "hippomocks" #?
+#addDependency "boson"  #require fmt and other 3rd paty libs
+#addDependency "SkyPat" #does not appear to contain CMakeLists.txt
+#addDependency "jubatus" #does not appear to contain CMakeLists.txt
+#addDependency "rr" #?
 addDependency "gherkin-c"
 addDependency "fmem"
 addDependency "gherkin-cpp"
 addDependency "GUnit"
-exit 1
-#git submodule update --init --recursive
 #addDependency "rocksdb" "-DWITH_TESTS=OFF -DWITH_TOOLS=OFF -DWITH_JEMALLOC=OFF -DWITH_SNAPPY=OFF -DWITH_LZ4=OFF -DWITH_ZLIB=OFF"
 addDependency "googletest"
 addDependency "CLUE" "-DBUILD_TESTS=OFF"
-addDependency "libsolace"
-addDependency "dynamix"
-addDependency "Fido"
-addDependency "lambda"
-addDependency "hippomocks"
-addDependency "boson"
-addDependency "SkyPat"
-addDependency "jubatus"
-addDependency "rr"
+addDependency "dynamix" "-DDYNAMIX_BUILD_EXAMPLES=OFF -DDYNAMIX_BUILD_TUTORIALS=OFF -DDYNAMIX_BUILD_UNIT_TESTS=OFF"
+#addDependency "json"
 addDependency "metal"
+cd $mypath
+cd YourProjectStartHere
+mkdir $CmakeezerBuild
+cd $CmakeezerBuild
+cmake -G"$UserGenerator"  $Cmakeezer_Options ..
+cmake --build . $generateDefaultOptions
+cmake --build . --target test
+cd $mypath
+echo @@@@@@@@@ $mypath @@@@@@@@@
+echo -e
+echo -e
+exit 1
 addDependency "syscpp"
 addDependency "sqlite_orm"
 addDependency "taichi"
@@ -170,21 +181,10 @@ addDependency "variant"
 addDependency "range-v3" "-DRANGE_V3_TESTS=OFF"
 addDependency "te" "-DENABLE_SANITIZERS=ON -DENABLE_TESTS=ON"
 addDependency "bullet3" "-DBUILD_CPU_DEMOS=ON"
-addDependency "metal"
 
 
-cd $mypath
-cd YourProjectStartHere
-mkdir $CmakeezerBuild
-cd $CmakeezerBuild
-cmake -G"$UserGenerator"  $Cmakeezer_Options ..
-cmake --build . $generateDefaultOptions
-cmake --build . --target test
-cd $mypath
-echo @@@@@@@@@ $mypath @@@@@@@@@
-echo -e
-echo -e
 
+#git submodule update --init --recursive
 
 
 
