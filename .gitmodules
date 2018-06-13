@@ -97,3 +97,6 @@
 [submodule "libs/metal"]
 	path = libs/metal
 	url = https://github.com/CMakeezer/metal
+[submodule "libs/json"]
+	path = libs/json
+	url = https://github.com/CMakeezer/json
