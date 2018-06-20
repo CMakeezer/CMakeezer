@@ -13,9 +13,6 @@
 [submodule "libs/libzmq"]
 	path = libs/libzmq
 	url = https://github.com/zeromq/libzmq
-[submodule "libs/cmcstl2"]
-	path = libs/cmcstl2
-	url = https://github.com/CMakeezer/cmcstl2
 [submodule "libs/Synca"]
 	path = libs/Synca
 	url = https://github.com/CMakeezer/Synca
@@ -31,9 +28,6 @@
 [submodule "libs/function2"]
 	path = libs/function2
 	url = https://github.com/CMakeezer/function2
-[submodule "libs/GSL"]
-	path = libs/GSL
-	url = https://github.com/CMakeezer/GSL
 [submodule "libs/Catch2"]
 	path = libs/Catch2
 	url = https://github.com/CMakeezer/Catch2
