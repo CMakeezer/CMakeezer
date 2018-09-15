@@ -64,9 +64,6 @@
 [submodule "libs/tiny-dnn"]
 	path = libs/tiny-dnn
 	url = https://github.com/CMakeezer/tiny-dnn
-[submodule "libs/brigand"]
-	path = libs/brigand
-	url = https://github.com/CMakeezer/brigand
 [submodule "libs/CLUE"]
 	path = libs/CLUE
 	url = https://github.com/CMakeezer/CLUE
