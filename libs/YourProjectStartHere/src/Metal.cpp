@@ -213,3 +213,5 @@ IS_SAME(
 );
 /// [values]
 )
+
+int main(){}

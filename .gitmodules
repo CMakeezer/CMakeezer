@@ -91,3 +91,24 @@
 [submodule "libs/json"]
 	path = libs/json
 	url = https://github.com/CMakeezer/json
+[submodule "libs/brigand2"]
+	path = libs/brigand2
+	url = https://github.com/CMakeezer/brigand
+[submodule "libs/te"]
+	path = libs/te
+	url = https://github.com/CMakeezer/te
+[submodule "libs/cat"]
+	path = libs/cat
+	url = https://github.com/CMakeezer/cat
+[submodule "libs/trompeloeil"]
+	path = libs/trompeloeil
+	url = https://github.com/CMakeezer/trompeloeil
+[submodule "libs/alloy"]
+	path = libs/alloy
+	url = https://github.com/CMakeezer/alloy
+[submodule "libs/libpcap"]
+	path = libs/libpcap
+	url = https://github.com/CMakeezer/libpcap
+[submodule "libs/sqlite_orm"]
+	path = libs/sqlite_orm
+	url = https://github.com/CMakeezer/sqlite_orm
